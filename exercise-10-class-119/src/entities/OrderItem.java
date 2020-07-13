@@ -35,5 +35,8 @@ public class OrderItem {
 		return product;
 	}
 	
-	
+	public Double subTotal() 
+	{
+		return quantity * price;
+	}
 }
