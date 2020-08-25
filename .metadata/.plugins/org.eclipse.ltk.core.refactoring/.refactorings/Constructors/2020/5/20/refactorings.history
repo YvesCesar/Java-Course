@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<session version="1.0">
-<refactoring comment="Copy 2 packages to &apos;Encapsulation/src&apos;&#x0A;- Original project: &apos;Constructors&apos;&#x0A;- Destination element: &apos;Encapsulation/src&apos;&#x0A;- Original elements:&#x0A;     Constructors/src/application&#x0A;     Constructors/src/entities" description="Copy packages" destination="=Encapsulation/src" element1="/src&lt;application" element2="/src&lt;entities" flags="589830" fragments="2" id="org.eclipse.jdt.ui.copy" policy="org.eclipse.jdt.ui.copyPackages" stamp="1589491992465" version="1.0"/>
-</session>
