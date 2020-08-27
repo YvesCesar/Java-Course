@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import entities.OutputFormat;
+
 public class Program {
 
 	public static void main(String[] args) {
@@ -18,15 +20,16 @@ public class Program {
 		System.out.print("Enter file path: ");
 		String strFile = sc.nextLine();
 		File inFile = new File(strFile);
-		List<String> lines = new ArrayList<>();
+		List<String> inputLines = new ArrayList<>();
 		
 		System.out.println();
 		try (BufferedReader br = new BufferedReader(new FileReader(inFile))) {
 			//Input:
 			String line = br.readLine();
 			
-			System.out.println("Input:");
+			System.out.println("Source file:");
 			while(line != null) {
+				inputLines.add(line);
 				System.out.println(line);
 				line = br.readLine();
 			}
@@ -39,12 +42,23 @@ public class Program {
 		System.out.println();
 		
 		// Output:
-		File outFile = new File(inFile + "/out");
-		try (BufferedWriter bw = new BufferedWriter(new FileWriter())) {
+		new File(inFile.getParent() + "/out/").mkdir();
+		File outFile = new File("/home/yvescesar/Documents/Curso_JAVA/files-test/out/summary.csv");
+		
+		List<OutputFormat> opf =  new ArrayList<>();
+		
+		for (String line : inputLines) {
+			String[] lineVect = line.split(",");
+			String name = lineVect[0];
+			Double price = Double.parseDouble(lineVect[1]);
+			Integer quantity = Integer.parseInt(lineVect[2]);
 			
-			System.out.println("Output:");
-			for (String line : lines) {
-				bw.write(line);
+			opf.add(new OutputFormat(name, price, quantity));
+		}
+		
+		try (BufferedWriter bw = new BufferedWriter(new FileWriter(outFile))) {
+			for (OutputFormat line : opf) {
+				bw.write(line.toString());
 				bw.newLine();
 			}
 		}
