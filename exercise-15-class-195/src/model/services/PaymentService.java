@@ -1,8 +1,7 @@
 package model.services;
 
-import java.util.Date;
-
 public interface PaymentService {
 	
-	double quota(Date date, int quantity,  double value);
+	Double paymentFee(Double amount);
+	Double interest(Double amount, Integer months);
 }

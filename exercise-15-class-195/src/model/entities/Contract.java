@@ -43,4 +43,11 @@ public class Contract {
 	public void setValue(Double value) {
 		this.value = value;
 	}
+	
+	public List<Installment> getInstallments() {
+		return installments;
+	}
+	public void setInstallments(Installment installment) {
+		installments.add(installment);
+	}
 }

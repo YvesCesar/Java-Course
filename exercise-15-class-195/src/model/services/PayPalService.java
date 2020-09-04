@@ -1,12 +1,16 @@
 package model.services;
 
-import java.util.Date;
 
 public class PayPalService implements PaymentService {
-	
+
 	@Override
-	public double quota(Date date, int quantity, double value) {
-		return 0;
+	public Double paymentFee(Double amount) {
+		return amount * 0.02;
+	}
+
+	@Override
+	public Double interest(Double amount, Integer months) {
+		return amount * (months / 100); 	 
 	}
 
 }
