@@ -16,17 +16,16 @@ public class ContractService {
 	
 	public ContractService() {}
 	
-	public ContractService(PaymentService pS) {
+	public ContractService(PayPalService pS) {
 		this.pS = pS;
 	}
 	
 	public void processContract(Contract contract, Integer months) throws ParseException {
 		Double plots = contract.getValue() / months;
-		Double tax = pS.paymentFee(plots);
 		
 		for(int i = 1; i <= months; i++) {
-			Double amount = pS.interest(plots, i);
-			amount += tax;
+			Double tax = pS.interest(plots, i);
+			Double amount = pS.paymentFee(tax);
 			
 			cal = new GregorianCalendar();
 			cal.setTime(contract.getDate());
