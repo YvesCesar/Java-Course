@@ -6,7 +6,7 @@ public class CalculationService {
 	
 	//public static <T> indica que esse método vai trabalhar com algum tipo T
 	//<T extends Comparable<T>> desde que T seja qualquer tipo Comparable T 
-	public static <T extends Comparable<T>> T max(List<T> list) {
+	public static <T extends Comparable<? super T>> T max(List<T> list) {
 		if (list.isEmpty()) {
 			throw new IllegalStateException("List can't be empty");
 		}
