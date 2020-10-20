@@ -7,7 +7,7 @@ public class Professor extends User {
 	
 	private String name;
 	private Set<Course> courses = new HashSet<>();
-	private Set<Student> students = new HashSet<>();
+	private Set<Student> totStudents = new HashSet<>();
 
 	public Professor(Integer key, String name) {
 		super(key);
@@ -30,10 +30,13 @@ public class Professor extends User {
 		courses.add(course);
 	}
 	
-	public Set<Student> totStudents(Set<Course> courses) {
-		 Set<Student> students = new HashSet<>();
+	public Set<Student> getTotStudents(Set<Course> courses) {
 		
+		for (Course course : courses) {
+			totStudents.addAll(course.getStudents());
+		}
 		
-		return students;
+		return totStudents;
 	}
+
 }

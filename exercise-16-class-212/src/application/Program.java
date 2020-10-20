@@ -25,7 +25,7 @@ public class Program {
 			}
 		}
 		
-		System.out.println("Total students: " + prof.totStudents(prof.getCourses()).size());
+		System.out.println("Total students: " + prof.getTotStudents(prof.getCourses()).size());
 		sc.close();
 	}
 
