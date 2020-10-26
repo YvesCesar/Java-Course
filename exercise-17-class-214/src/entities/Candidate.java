@@ -1,9 +1,11 @@
 package entities;
 
-public class Candidate {
+public class Candidate implements Comparable<Candidate> {
 	
 	private String name;
 	private Integer votes;
+	
+	public Candidate() {}
 	
 	public Candidate(String name, Integer votes) {
 		this.name = name;
@@ -24,6 +26,11 @@ public class Candidate {
 
 	public void setVotes(Integer votes) {
 		this.votes = votes;
+	}
+	
+	@Override 
+	public String toString() {
+		return getName() + ": " + getVotes();
 	}
 
 	@Override
@@ -49,5 +56,10 @@ public class Candidate {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
+	}
+
+	@Override
+	public int compareTo(Candidate other) {
+		return -this.getVotes().compareTo(other.getVotes());
 	}
 }
