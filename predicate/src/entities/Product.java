@@ -22,6 +22,10 @@ public class Product {
 		this.price = price;
 	}
 	
+	public static boolean staticProductPredicate(Product p) {
+		return p.getPrice() >= 100.00;
+	}
+	
 	@Override
 	public String toString() {
 		return getName() + ", " + getPrice();
