@@ -13,11 +13,15 @@ public class Program {
 		Stream<Integer> st1 = list.stream().map(x -> x * 10);
 		System.out.println(Arrays.toString(st1.toArray()));
 		
-		Stream<String> st2 = Stream.of("Maria", "Alex", "Bob");
+		Stream<String> st2 = Stream.of("Yves", "César", "Amorim");
 		System.out.println(Arrays.toString(st2.toArray()));
 		
 		Stream<Integer> st3 = Stream.iterate(0, x -> x + 2);
 		System.out.println(Arrays.toString(st3.limit(10).toArray()));
+		
+		// Fibonacci stream F(n) = F(n - 1) + F(n - 2)
+		Stream<Long> st4 = Stream.iterate(new Long[] {0L,  1L}, p -> new Long[] {p[1], p[0] + p[1]}).map(p -> p[0]);
+		System.out.println(Arrays.toString(st4.limit(10).toArray()));
 	}
 
 }
