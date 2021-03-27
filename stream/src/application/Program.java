@@ -10,7 +10,7 @@ public class Program {
 		
 		List<Integer> list = Arrays.asList(3, 4, 5, 10, 7);
 		
-		Stream<Integer> st1 = list.stream();
+		Stream<Integer> st1 = list.stream().map(x -> x * 10);
 		System.out.println(Arrays.toString(st1.toArray()));
 		
 		
